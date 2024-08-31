@@ -1,18 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://blv4i8q7xbhi4"]
+[gd_scene load_steps=2 format=3 uid="uid://blv4i8q7xbhi4"]
 
 [ext_resource type="Texture2D" uid="uid://dbdidlc16rto" path="res://asset/chat.png" id="1_a8k0i"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1eqqn"]
-size = Vector2(64, 40)
+[node name="Chat" type="Node2D"]
 
-[node name="Chat" type="StaticBody2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
-shape = SubResource("RectangleShape2D_1eqqn")
-
-[node name="Chat" type="Sprite2D" parent="CollisionShape2D"]
+[node name="Chat" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, 4)
 scale = Vector2(2.32, 2.32)
 texture = ExtResource("1_a8k0i")

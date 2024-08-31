@@ -1,44 +1,53 @@
-[gd_scene load_steps=8 format=3 uid="uid://4u0qrhykm6um"]
+[gd_scene load_steps=7 format=3 uid="uid://4u0qrhykm6um"]
 
-[ext_resource type="Texture2D" uid="uid://0q61o5gpxxtp" path="res://asset/tuile_arriere_plan.png" id="1_bth2c"]
 [ext_resource type="PackedScene" uid="uid://qtll2h5uhcp6" path="res://content/joueur.tscn" id="1_sgqen"]
 [ext_resource type="PackedScene" uid="uid://blv4i8q7xbhi4" path="res://content/chat.tscn" id="2_os8it"]
 [ext_resource type="PackedScene" uid="uid://k3wsqfgrs2ty" path="res://content/balle_vilain.tscn" id="3_a7okp"]
 [ext_resource type="Script" path="res://content/chemin_chat.cs" id="3_ppn2y"]
-[ext_resource type="PackedScene" uid="uid://cnmlixdhcgj3r" path="res://content/nuage.tscn" id="6_1vrpb"]
+
+[sub_resource type="Curve2D" id="Curve2D_ge1f5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 226, 150, 0, 0, 0, 0, 922, 146, 0, 0, 0, 0, 1340, 170, 0, 0, 0, 0, 1394, 731, 0, 0, 0, 0, 829, 905, 0, 0, 0, 0, 946, 564, 0, 0, 0, 0, 525, 931, 0, 0, 0, 0, 184, 889, 0, 0, 0, 0, 532, 707, 0, 0, 0, 0, 143, 537, 0, 0, 0, 0, 599, 334, 0, 0, 0, 0, 226, 150)
+}
+point_count = 12
 
 [sub_resource type="Curve2D" id="Curve2D_s3hix"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 94.6829, 49.9064, 0, 0, 0, 0, 502.057, 58.3058, 0, 0, 0, 0, 1113.01, 129.25, 0, 0, 0, 0, 1303.61, 453.276, 0, 0, 0, 0, 1465.06, 471.215, 0, 0, 0, 0, 1055.83, 937.632, 0, 0, 0, 0, 136.445, 907.36, 0, 0, 0, 0, 180.172, 443.185, 0, 0, 0, 0, 799.072, 553.062, 0, 0, 0, 0, 94.6829, 49.9064)
+"points": PackedVector2Array(0, 0, 0, 0, 94.6829, 49.9064, 0, 0, 0, 0, 127, 412, 0, 0, 0, 0, 408, 455, 0, 0, 0, 0, 378, 727, 0, 0, 0, 0, 210, 890, 0, 0, 0, 0, 788, 902, 0, 0, 0, 0, 1338, 905, 0, 0, 0, 0, 1420, 724, 0, 0, 0, 0, 1051, 636, 0, 0, 0, 0, 1257, 464, 0, 0, 0, 0, 1114, 125, 0, 0, 0, 0, 716, 752, 0, 0, 0, 0, 900, 114, 0, 0, 0, 0, 94.6829, 49.9064)
 }
-point_count = 10
+point_count = 14
 
 [node name="Niveau" type="Node2D"]
 metadata/_edit_lock_ = true
 
-[node name="TuileArrierePlan" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(755.849, 498.382)
-scale = Vector2(5.51714, 5.14866)
-texture = ExtResource("1_bth2c")
-metadata/_edit_lock_ = true
-
-[node name="Joueur" parent="." instance=ExtResource("1_sgqen")]
-position = Vector2(488, 280)
-
 [node name="CheminChat" type="Path2D" parent="."]
-curve = SubResource("Curve2D_s3hix")
+curve = SubResource("Curve2D_ge1f5")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="CheminChat"]
-position = Vector2(94.6829, 49.9064)
-rotation = 0.0206155
+position = Vector2(205.601, 564.358)
+rotation = -2.72959
+progress = 4280.99
 script = ExtResource("3_ppn2y")
+VitesseChat = 0.2
 Projectile = ExtResource("3_a7okp")
+ActionAvance = "Chat_Avance"
+ActionRecule = "Chat_Recule"
+ActionTire = "Chat_Tire"
 
 [node name="Chat" parent="CheminChat/PathFollow2D" instance=ExtResource("2_os8it")]
 
-[node name="Nuage" parent="." instance=ExtResource("6_1vrpb")]
-position = Vector2(752.379, 770.53)
+[node name="CheminJoueur" type="Path2D" parent="."]
+curve = SubResource("Curve2D_s3hix")
 
-[node name="BalleVilain" parent="." instance=ExtResource("3_a7okp")]
-position = Vector2(387.204, 635.835)
+[node name="PathFollow2D" type="PathFollow2D" parent="CheminJoueur"]
+position = Vector2(345.884, 445.495)
+rotation = 0.151847
+progress = 584.963
+script = ExtResource("3_ppn2y")
+VitesseChat = 0.2
+Projectile = ExtResource("3_a7okp")
+ActionAvance = "Joueur_Avance"
+ActionRecule = "Joueur_Recule"
+ActionTire = "Joueur_Tire"
+
+[node name="Joueur" parent="CheminJoueur/PathFollow2D" instance=ExtResource("1_sgqen")]
