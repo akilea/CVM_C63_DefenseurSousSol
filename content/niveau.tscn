@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://4u0qrhykm6um"]
+[gd_scene load_steps=9 format=3 uid="uid://4u0qrhykm6um"]
 
+[ext_resource type="Texture2D" uid="uid://0q61o5gpxxtp" path="res://asset/tuile_arriere_plan.png" id="1_bth2c"]
 [ext_resource type="PackedScene" uid="uid://qtll2h5uhcp6" path="res://content/joueur.tscn" id="1_sgqen"]
 [ext_resource type="PackedScene" uid="uid://blv4i8q7xbhi4" path="res://content/chat.tscn" id="2_os8it"]
 [ext_resource type="PackedScene" uid="uid://k3wsqfgrs2ty" path="res://content/balle_vilain.tscn" id="3_a7okp"]
 [ext_resource type="Script" path="res://content/chemin_chat.cs" id="3_ppn2y"]
+[ext_resource type="PackedScene" uid="uid://bnng3kqisg1fx" path="res://content/balle_coeur.tscn" id="5_remqh"]
 
 [sub_resource type="Curve2D" id="Curve2D_ge1f5"]
 _data = {
@@ -19,6 +21,12 @@ point_count = 14
 
 [node name="Niveau" type="Node2D"]
 metadata/_edit_lock_ = true
+
+[node name="TuileArrierePlan" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(754.722, 537.5)
+scale = Vector2(5.61111, 5.61111)
+texture = ExtResource("1_bth2c")
 
 [node name="CheminChat" type="Path2D" parent="."]
 curve = SubResource("Curve2D_ge1f5")
@@ -45,7 +53,7 @@ rotation = 0.151847
 progress = 584.963
 script = ExtResource("3_ppn2y")
 VitesseChat = 0.2
-Projectile = ExtResource("3_a7okp")
+Projectile = ExtResource("5_remqh")
 ActionAvance = "Joueur_Avance"
 ActionRecule = "Joueur_Recule"
 ActionTire = "Joueur_Tire"

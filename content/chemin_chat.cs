@@ -33,7 +33,13 @@ public partial class chemin_chat : PathFollow2D
         if (Input.IsActionJustPressed(ActionTire))
         {
             BalleVilain projectile = Projectile.Instantiate<BalleVilain>();
+            //projectile.LinearVelocity = new Vector2(1000, 0);
+            //Direction de la fleche verte
+            Vector2 direction = this.Transform.Y;
+            //Regarde dans cette direction
+            projectile.LookAt(direction);
             projectile.Position = this.Position;
+            //Ready sera appele apres, donc le boulet est lance par la suite.
             this.GetTree().CurrentScene.AddChild(projectile);
         }
     }
