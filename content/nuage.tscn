@@ -1,19 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnmlixdhcgj3r"]
+[gd_scene load_steps=3 format=3 uid="uid://ck83s23oxiqfa"]
 
-[ext_resource type="Script" path="res://content/Nuage.cs" id="1_1o1ik"]
-[ext_resource type="Texture2D" uid="uid://fm8koat6idsx" path="res://asset/nuage.png" id="1_k8bir"]
+[ext_resource type="PackedScene" uid="uid://k3wsqfgrs2ty" path="res://content/balle_vilain.tscn" id="1_v5is0"]
+[ext_resource type="Texture2D" uid="uid://fm8koat6idsx" path="res://asset/nuage.png" id="2_jplyf"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_r33tc"]
+[node name="BalleVilain" instance=ExtResource("1_v5is0")]
 
-[node name="Nuage" type="RigidBody2D"]
-gravity_scale = 0.0
-script = ExtResource("1_1o1ik")
+[node name="CollisionShape2D" parent="." index="0"]
+shape = null
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_r33tc")
-disabled = true
-
-[node name="Nuage" type="Sprite2D" parent="CollisionShape2D"]
-texture_filter = 1
-scale = Vector2(0.116387, 0.116387)
-texture = ExtResource("1_k8bir")
+[node name="BalleVilain" parent="CollisionShape2D" index="0"]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_jplyf")

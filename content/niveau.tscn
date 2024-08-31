@@ -1,40 +1,36 @@
-[gd_scene load_steps=9 format=3 uid="uid://4u0qrhykm6um"]
+[gd_scene load_steps=11 format=3 uid="uid://4u0qrhykm6um"]
 
 [ext_resource type="Texture2D" uid="uid://0q61o5gpxxtp" path="res://asset/tuile_arriere_plan.png" id="1_bth2c"]
+[ext_resource type="Script" path="res://addons/debug_camera/scripts/DebugCamera2D.gd" id="1_hau0a"]
 [ext_resource type="PackedScene" uid="uid://qtll2h5uhcp6" path="res://content/joueur.tscn" id="1_sgqen"]
 [ext_resource type="PackedScene" uid="uid://blv4i8q7xbhi4" path="res://content/chat.tscn" id="2_os8it"]
 [ext_resource type="PackedScene" uid="uid://k3wsqfgrs2ty" path="res://content/balle_vilain.tscn" id="3_a7okp"]
-[ext_resource type="Script" path="res://content/chemin_chat.cs" id="3_ppn2y"]
-[ext_resource type="PackedScene" uid="uid://bnng3kqisg1fx" path="res://content/balle_coeur.tscn" id="5_remqh"]
+[ext_resource type="Script" path="res://src/ControleJoueur.cs" id="3_ppn2y"]
+[ext_resource type="PackedScene" uid="uid://coyk46slkd6sg" path="res://content/balle_coeur.tscn" id="4_ri4sp"]
+[ext_resource type="PackedScene" uid="uid://cdr0tyq062f5d" path="res://content/emetteur_nuage.tscn" id="7_e0hmf"]
 
 [sub_resource type="Curve2D" id="Curve2D_ge1f5"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 226, 150, 0, 0, 0, 0, 922, 146, 0, 0, 0, 0, 1340, 170, 0, 0, 0, 0, 1394, 731, 0, 0, 0, 0, 829, 905, 0, 0, 0, 0, 946, 564, 0, 0, 0, 0, 525, 931, 0, 0, 0, 0, 184, 889, 0, 0, 0, 0, 532, 707, 0, 0, 0, 0, 143, 537, 0, 0, 0, 0, 599, 334, 0, 0, 0, 0, 226, 150)
+"points": PackedVector2Array(0, 0, 0, 0, 175, 39, 0, 0, 0, 0, 1068, 29, 0, 0, 0, 0, 1390, 171, 0, 0, 0, 0, 1461, 873, 0, 0, 0, 0, 856, 953, 0, 0, 0, 0, 230, 794, 0, 0, 0, 0, 470, 322, 0, 0, 0, 0, 175, 39)
 }
-point_count = 12
+point_count = 8
 
 [sub_resource type="Curve2D" id="Curve2D_s3hix"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 94.6829, 49.9064, 0, 0, 0, 0, 127, 412, 0, 0, 0, 0, 408, 455, 0, 0, 0, 0, 378, 727, 0, 0, 0, 0, 210, 890, 0, 0, 0, 0, 788, 902, 0, 0, 0, 0, 1338, 905, 0, 0, 0, 0, 1420, 724, 0, 0, 0, 0, 1051, 636, 0, 0, 0, 0, 1257, 464, 0, 0, 0, 0, 1114, 125, 0, 0, 0, 0, 716, 752, 0, 0, 0, 0, 900, 114, 0, 0, 0, 0, 94.6829, 49.9064)
+"points": PackedVector2Array(0, 0, 0, 0, 140, 925, 0, 0, 0, 0, 1412, 943, 0, 0, 0, 0, 1420, 307, 0, 0, 0, 0, 948, 8, 0, 0, 0, 0, 224, 179, 0, 0, 0, 0, 442, 627, 0, 0, 0, 0, 140, 925)
 }
-point_count = 14
+point_count = 7
 
 [node name="Niveau" type="Node2D"]
 metadata/_edit_lock_ = true
-
-[node name="TuileArrierePlan" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(754.722, 537.5)
-scale = Vector2(5.61111, 5.61111)
-texture = ExtResource("1_bth2c")
 
 [node name="CheminChat" type="Path2D" parent="."]
 curve = SubResource("Curve2D_ge1f5")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="CheminChat"]
-position = Vector2(205.601, 564.358)
-rotation = -2.72959
-progress = 4280.99
+position = Vector2(659.185, 903.01)
+rotation = -2.89286
+progress = 2763.89
 script = ExtResource("3_ppn2y")
 VitesseChat = 0.2
 Projectile = ExtResource("3_a7okp")
@@ -48,14 +44,30 @@ ActionTire = "Chat_Tire"
 curve = SubResource("Curve2D_s3hix")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="CheminJoueur"]
-position = Vector2(345.884, 445.495)
-rotation = 0.151847
-progress = 584.963
+position = Vector2(1368.73, 942.388)
+rotation = 0.01415
+progress = 1228.84
 script = ExtResource("3_ppn2y")
 VitesseChat = 0.2
-Projectile = ExtResource("5_remqh")
+Projectile = ExtResource("4_ri4sp")
 ActionAvance = "Joueur_Avance"
 ActionRecule = "Joueur_Recule"
 ActionTire = "Joueur_Tire"
 
 [node name="Joueur" parent="CheminJoueur/PathFollow2D" instance=ExtResource("1_sgqen")]
+
+[node name="TuileArrierePlan" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+position = Vector2(769, 485)
+scale = Vector2(5.61111, 5.61111)
+texture = ExtResource("1_bth2c")
+metadata/_edit_lock_ = true
+
+[node name="EmetteurNuage" parent="." instance=ExtResource("7_e0hmf")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(753, 500)
+script = ExtResource("1_hau0a")
+min_zoom = 0.1
+max_zoom = 10.0

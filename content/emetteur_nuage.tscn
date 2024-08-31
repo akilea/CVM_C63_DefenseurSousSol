@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cdr0tyq062f5d"]
 
-[ext_resource type="Script" path="res://content/EmetteurNuage.cs" id="1_rw7dk"]
-[ext_resource type="PackedScene" uid="uid://cnmlixdhcgj3r" path="res://content/nuage.tscn" id="2_ub8ub"]
+[ext_resource type="Script" path="res://src/EmetteurNuage.cs" id="1_rw7dk"]
+[ext_resource type="PackedScene" uid="uid://ck83s23oxiqfa" path="res://content/nuage.tscn" id="2_xb472"]
 
 [sub_resource type="Curve2D" id="Curve2D_hq13r"]
 _data = {
@@ -18,4 +18,4 @@ rotation = 1.56277
 script = ExtResource("1_rw7dk")
 VitesseMin = 200.0
 VitesseMax = 400.0
-Nuage = ExtResource("2_ub8ub")
+Nuage = ExtResource("2_xb472")
