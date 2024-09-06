@@ -24,7 +24,7 @@ metadata/_edit_lock_ = true
 curve = SubResource("Curve2D_ge1f5")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="CheminChat"]
-position = Vector2(205.601, 564.358)
+position = Vector2(205.602, 564.358)
 rotation = -2.72959
 progress = 4280.99
 script = ExtResource("3_ppn2y")
