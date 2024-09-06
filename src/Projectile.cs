@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class BalleVilain : RigidBody2D
+public partial class Projectile : RigidBody2D
 {
 	[Export]
 	public float Vitesse = 1000.0f;

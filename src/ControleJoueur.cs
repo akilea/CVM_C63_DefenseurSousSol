@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class chemin_chat : PathFollow2D
+public partial class ControleJoueur : PathFollow2D
 {
     [Export]
     private double VitesseChat = 1.0;
@@ -32,7 +32,7 @@ public partial class chemin_chat : PathFollow2D
         }
         if (Input.IsActionJustPressed(ActionTire))
         {
-            BalleVilain projectile = Projectile.Instantiate<BalleVilain>();
+            Projectile projectile = Projectile.Instantiate<Projectile>();
             //projectile.LinearVelocity = new Vector2(1000, 0);
             //Direction de la fleche verte
             Vector2 direction = this.Transform.Y;

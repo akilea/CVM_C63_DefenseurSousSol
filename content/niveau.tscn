@@ -48,7 +48,6 @@ position = Vector2(1368.73, 942.388)
 rotation = 0.01415
 progress = 1228.84
 script = ExtResource("3_ppn2y")
-VitesseChat = 0.2
 Projectile = ExtResource("4_ri4sp")
 ActionAvance = "Joueur_Avance"
 ActionRecule = "Joueur_Recule"

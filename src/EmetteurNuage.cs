@@ -18,7 +18,7 @@ public partial class EmetteurNuage : PathFollow2D
 		{
 			if (GD.Randi() % 2 == 0)
 			{
-				BalleVilain nuage = Nuage.Instantiate<BalleVilain>();
+                Projectile nuage = Nuage.Instantiate<Projectile>();
 				nuage.LinearVelocity = new Vector2(100, 0);
 				float v = VitesseMin + GD.Randf() * (VitesseMax - VitesseMin);
 				this.ProgressRatio = GD.Randf();
