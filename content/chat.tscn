@@ -1,10 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://blv4i8q7xbhi4"]
+[gd_scene load_steps=3 format=3 uid="uid://blv4i8q7xbhi4"]
 
 [ext_resource type="Texture2D" uid="uid://dbdidlc16rto" path="res://asset/chat.png" id="1_a8k0i"]
 
-[node name="Chat" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gcaia"]
+radius = 13.0
+height = 56.0
 
-[node name="Chat" type="Sprite2D" parent="."]
+[node name="Chat" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 4
+freeze = true
+freeze_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_gcaia")
+
+[node name="Chat" type="Sprite2D" parent="CollisionShape2D"]
 texture_filter = 1
+rotation = -1.57079
 scale = Vector2(2.32, 2.32)
 texture = ExtResource("1_a8k0i")

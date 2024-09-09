@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Profile 1": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Users\\Marc-Andre\\Documents\\CVM\\Godot_v4.3-stable_mono_win64\\Godot_v4.3-stable_mono_win64.exe",
+      "workingDirectory": "C:\\Users\\Marc-Andre\\Documents\\CVM\\CVM_C63_DefenseurSousSol"
+    }
+  }
+}
