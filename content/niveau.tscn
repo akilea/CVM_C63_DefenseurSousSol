@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://4u0qrhykm6um"]
+[gd_scene load_steps=8 format=3 uid="uid://4u0qrhykm6um"]
 
 [ext_resource type="PackedScene" uid="uid://qtll2h5uhcp6" path="res://content/joueur.tscn" id="1_sgqen"]
 [ext_resource type="PackedScene" uid="uid://blv4i8q7xbhi4" path="res://content/chat.tscn" id="2_os8it"]
 [ext_resource type="PackedScene" uid="uid://k3wsqfgrs2ty" path="res://content/balle_vilain.tscn" id="3_a7okp"]
 [ext_resource type="Script" path="res://content/chemin_chat.cs" id="3_ppn2y"]
+[ext_resource type="Script" path="res://addons/debug_camera/scripts/DebugCamera2D.gd" id="5_uafut"]
 
 [sub_resource type="Curve2D" id="Curve2D_ge1f5"]
 _data = {
@@ -51,3 +52,7 @@ ActionRecule = "Joueur_Recule"
 ActionTire = "Joueur_Tire"
 
 [node name="Joueur" parent="CheminJoueur/PathFollow2D" instance=ExtResource("1_sgqen")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(748, 494)
+script = ExtResource("5_uafut")
